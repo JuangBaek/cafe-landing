@@ -4,8 +4,17 @@ body { font-family: "Malgun Gothic", sans-serif; color: #3b2a20; line-height: 1.
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-.hero { min-height: 80vh; background: linear-gradient(rgba(59,42,32,.65), rgba(59,42,32,.65)), #6f4e37; color: #fff; display: flex; flex-direction: column; }
-nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 20px 6%; position: sticky; top: 0; }
+:root { color-scheme: light; }
+:focus-visible { outline: 3px solid #e8b86d; outline-offset: 3px; border-radius: 4px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip-link { position: absolute; left: 12px; top: -60px; background: #e8b86d; color: #3b2a20; padding: 10px 16px; border-radius: 8px; font-weight: bold; z-index: 20; }
+.skip-link:focus { top: 12px; }
+h1, h2, h3, .lead { text-wrap: balance; }
+[id] { scroll-margin-top: 80px; }
+
+.site-header { position: sticky; top: 0; z-index: 10; background: rgba(59,42,32,.94); backdrop-filter: blur(8px); color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.15); }
+.hero { min-height: 75vh; background: linear-gradient(rgba(59,42,32,.65), rgba(59,42,32,.65)), #6f4e37; color: #fff; display: flex; flex-direction: column; }
+nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 14px 6%; }
 nav .logo { font-weight: bold; font-size: 1.3rem; }
 nav ul { display: flex; gap: 24px; flex-wrap: wrap; }
 nav ul a:hover { color: #e8b86d; }
@@ -62,6 +71,15 @@ h2 { margin-bottom: 12px; font-size: 1.9rem; }
 .visit-info h3:first-child { margin-top: 0; }
 .map-placeholder { min-height: 260px; background: #eadccc; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #6b564a; text-align: center; }
 
+/* 안내(FAQ) */
+.faq { max-width: 720px; margin: 30px auto 0; text-align: left; display: grid; gap: 10px; }
+.faq details { background: #fff; border: 1px solid #eadccc; border-radius: 12px; padding: 4px 20px; }
+.faq summary { cursor: pointer; font-weight: bold; padding: 14px 0; }
+.faq details[open] { border-color: #e8b86d; }
+.faq details p { padding-bottom: 16px; color: #6b564a; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
 footer { background: #3b2a20; color: #ddd; text-align: center; padding: 24px; font-size: .9rem; }
 
 @media (max-width: 600px) {
@@ -69,4 +87,7 @@ footer { background: #3b2a20; color: #ddd; text-align: center; padding: 24px; fo
   nav { justify-content: center; }
   nav ul { gap: 14px; justify-content: center; }
   section { padding: 60px 5%; }
+  [id] { scroll-margin-top: 110px; }
+  .menu-group { padding: 20px; }
+  .hours th, .hours td { padding: 12px 16px; }
 }
